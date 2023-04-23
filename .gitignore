@@ -2,6 +2,25 @@
 node_modules
 /dist
 
+# dependencies
+/node_modules
+/.pnp
+.pnp.js
+
+### Sass ###
+.sass-cache/
+*.css.map
+*.sass.map
+*.scss.map
+
+### macOS ###
+# General
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# Thumbnails
+._*
 
 # local env files
 .env.local

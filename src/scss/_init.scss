@@ -1,0 +1,50 @@
+@mixin realativeZero(){
+  position: relative;
+  top: 0;
+  left: 0;
+}
+@mixin flexBetween(){
+  display: flex;
+  justify-content: space-between;
+}
+@mixin flexCenter(){
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+$black-color: #2B2D2C;
+$white-color: #F6F6F6;
+
+html,body{
+  margin: 0;
+  background-color: #eee;
+  font-family: 'SUIT Variable', sans-serif;
+}
+#app{
+  min-width: 375px;
+  max-width: 580px;
+  height: 100vh;
+  overflow-x: hidden;
+  overflow-y: scroll;
+  margin: 0 auto;
+  background: #fff;
+}
+[class$="-wrap"]{
+  width: 100%;
+}
+[class$="-container"]{
+  width: 90%;
+  margin: 0 auto;
+}
+input,select,option{
+  display: block;
+  box-sizing: border-box;
+  border: 0 none;
+  background: transparent;
+}
+.en{
+  font-family: 'Work Sans', sans-serif;
+}
+
+
