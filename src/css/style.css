@@ -4,6 +4,11 @@ html, body {
   font-family: "SUIT Variable", sans-serif;
 }
 
+p {
+  margin: 0;
+  padding: 0;
+}
+
 #app {
   min-width: 375px;
   max-width: 580px;
@@ -121,4 +126,99 @@ input, select, option {
   border-radius: 15px;
   color: #F6F6F6;
   background-color: #2B2D2C;
+}
+
+.record-wrap {
+  margin: 1.8rem 0;
+}
+.record-wrap .meet-record {
+  display: flex;
+  justify-content: space-between;
+}
+.record-wrap .meet-record > div {
+  border-radius: 15px;
+}
+.record-wrap .meet-record-when {
+  width: 20%;
+  background-color: #E2EFEB;
+}
+.record-wrap .meet-record-when > p {
+  padding: 1rem;
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: #0A696D;
+  text-align: center;
+}
+.record-wrap .meet-record-where {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  flex-direction: column;
+  width: 55%;
+  background-color: #FAF8EC;
+}
+.record-wrap .meet-record-where > p {
+  width: 80%;
+  color: #2B2D2C;
+}
+.record-wrap .meet-record-where-location {
+  font-weight: 300;
+}
+.record-wrap .meet-record-where-cafe {
+  font-weight: 500;
+}
+.record-wrap .meet-record-who {
+  width: 20%;
+  background-color: #F3EFFF;
+  text-align: center;
+}
+.record-wrap .meet-record-who > svg, .record-wrap .meet-record-who p {
+  color: #A294CE;
+}
+.record-wrap .meet-record-who svg {
+  max-width: 2.75rem;
+  padding-top: 1rem;
+}
+.record-wrap .meet-record-who-name {
+  margin-top: 0.2rem;
+  font-size: 1.1rem;
+  font-weight: 500;
+}
+.record-wrap .record-what {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  margin-top: 1rem;
+}
+.record-wrap .record-what-space {
+  width: 48%;
+  text-align: center;
+  border-radius: 15px;
+  padding: 0.3rem 0;
+}
+.record-wrap .record-what-space:first-child {
+  border: 1px solid #AECDC3;
+  margin-bottom: 0.8rem;
+}
+.record-wrap .record-what-space:first-child .space-for {
+  color: #AECDC3;
+}
+.record-wrap .record-what-space:nth-child(2) {
+  border: 1px solid #ffcc9d;
+  margin-bottom: 0.8rem;
+}
+.record-wrap .record-what-space:nth-child(2) .space-for {
+  color: #ffcc9d;
+}
+.record-wrap .record-what-space:nth-child(3) {
+  border: 1px solid #FFC6BB;
+}
+.record-wrap .record-what-space:nth-child(3) .space-for {
+  color: #FFC6BB;
+}
+.record-wrap .record-what-space:nth-child(4) {
+  border: 1px solid #94D2E5;
+}
+.record-wrap .record-what-space:nth-child(4) .space-for {
+  color: #94D2E5;
 }/*# sourceMappingURL=style.css.map */

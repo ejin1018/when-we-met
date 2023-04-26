@@ -21,6 +21,10 @@ html,body{
   background-color: #eee;
   font-family: 'SUIT Variable', sans-serif;
 }
+p{
+  margin: 0;
+  padding: 0;
+}
 #app{
   min-width: 375px;
   max-width: 580px;
