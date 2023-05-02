@@ -25,6 +25,9 @@ p{
   margin: 0;
   padding: 0;
 }
+textarea{
+  resize: none;
+}
 #app{
   min-width: 375px;
   max-width: 580px;
