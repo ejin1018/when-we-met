@@ -10,7 +10,7 @@
     components:{writeRecord},
     setup(){
       const route = useRoute();
-      console.log(route.params)
+      console.log(route.params.username)
     }
   })
 </script>

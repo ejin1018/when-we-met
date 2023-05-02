@@ -1,5 +1,5 @@
 <template>
-  <meetForm />
+  <meetForm :test="테스트" />
   <meetRecord />
 </template>
 

@@ -7,7 +7,7 @@
           <p>뒤로</p>
         </router-link>
         <div class="record-top-middle">
-          <p class="middle-when">4월 20일</p>
+          <p class="middle-when">월 일</p>
           <p class="middle-who">의 일지</p>
         </div>
         <button class="record-top-submit">
@@ -24,7 +24,6 @@
 
 <script>
 export default {
-
 }
 </script>
 
