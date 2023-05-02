@@ -4,11 +4,8 @@
     @include flexBetween;
     flex-wrap: wrap;
     margin-bottom: 1rem;
-    > div{
-      border-radius: 15px;
-    }
     &-when{
-      width: 20%;
+      @include sideRect;
       background-color: #E2EFEB;
       > p{
         padding: 1rem;
@@ -24,6 +21,7 @@
       justify-content: space-evenly;
       flex-direction: column;
       width: 55%;
+      border-radius: 15px;
       background-color: #FAF8EC;
       >p{
         width: 80%;
@@ -37,9 +35,8 @@
       }
     }
     &-who{
-      width: 20%;
+      @include sideRect;
       background-color: #F3EFFF;
-      text-align: center;
       > svg,p{
         color: #A294CE;
       }
@@ -64,6 +61,7 @@
       text-align: center;
       border-radius: 15px;
       padding: 0.3rem 0;
+      transition: all .4s;
       #space-write{
         width: 100%;
       }
@@ -73,6 +71,12 @@
         .space-for{
           color: #AECDC3;
         }
+        &:hover{
+          background: #AECDC3;
+          .space-for{
+            color: #fff;
+          }
+        }
       }
       &:nth-child(2){
         border: 1px solid #ffcc9d;
@@ -80,17 +84,35 @@
         .space-for{
           color: #ffcc9d;
         }
+        &:hover{
+          background: #ffcc9d;
+          .space-for{
+            color: #fff;
+          }
+        }
       }
       &:nth-child(3){
         border: 1px solid #FFC6BB;
         .space-for{
           color: #FFC6BB;
         }
+        &:hover{
+          background: #FFC6BB;
+          .space-for{
+            color: #fff;
+          }
+        }
       }
       &:nth-child(4){
         border: 1px solid #94D2E5;
         .space-for{
           color: #94D2E5;
+        }
+        &:hover{
+          background: #94D2E5;
+          .space-for{
+            color: #fff;
+          }
         }
       }
     }

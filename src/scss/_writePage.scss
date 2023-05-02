@@ -1,0 +1,60 @@
+.record-top{
+  @include flexBetween;
+  &-back, &-submit{
+    @include sideRect;
+    color: #B4B4B4;
+    background: #F6F6F6;
+    svg{
+      padding-top: 0.8rem;
+    }
+    p{
+      padding-bottom: 0.8rem;
+    }
+  }
+  &-middle{
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    flex-direction: column;
+    width: 55%;
+    border-radius: 15px;
+    background: #FAF8EC;
+    p{
+      width: 80%;
+      color: $black-color;
+    }
+    .middle-when{
+      font-size: 0.8rem;
+      font-weight: 300;
+    }
+    .middle-who{
+      font-size: 1.1rem;
+      font-weight: 500;
+    }
+  }
+  &-submit{
+    @include sideRect;
+    border: 0 none;
+    color: #0A696D;
+    background: #E2EFEB;
+  }
+}
+.record-bottom{
+  margin: 1.8rem 0;
+  textarea{
+    width: 100%;
+    padding: 1rem;
+    border-radius: 15px;
+    box-sizing: border-box;
+    font-size: 1rem;
+    font-weight: 300;
+    line-height: 1.65;
+    letter-spacing: -0.35px;
+    border: 1px solid #AECDC3;
+    transition: all .3s;
+    &:focus{
+      outline: none;
+      border: 3px solid #AECDC3;
+    }
+  }
+}

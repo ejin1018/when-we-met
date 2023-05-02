@@ -14,22 +14,34 @@
           <p class="meet-record-who-name">{{ i.who }}</p>
         </div>
         <div class="record-what">
-          <div class="record-what-space">
-            <p class="space-for">현우</p>
-            <p class="space-write"></p>
-          </div>
-          <div class="record-what-space">
-            <p class="space-for">애경</p>
-            <p class="space-write"></p>
-          </div>
-          <div class="record-what-space">
-            <p class="space-for">규연</p>
-            <p class="space-write"></p>
-          </div>
-          <div class="record-what-space">
-            <p class="space-for">이진</p>
-            <p class="space-write"></p>
-          </div>
+          <router-link 
+            class="record-what-space"
+            :to="{name: 'user',params:{username:'sango'}}"
+          >
+            <span class="space-for">현우</span>
+            <span class="space-write"></span>
+          </router-link>
+          <router-link 
+            class="record-what-space"
+            :to="{name: 'user',params:{username:'aek'}}"
+          >
+            <span class="space-for">애경</span>
+            <span class="space-write"></span>
+          </router-link>
+          <router-link 
+            class="record-what-space"
+            :to="{name: 'user',params:{username:'gugu'}}"
+          >
+            <span class="space-for">규연</span>
+            <span class="space-write"></span>
+          </router-link>
+          <router-link 
+            class="record-what-space"
+            :to="{name: 'user',params:{username:'ejin'}}"
+          >
+            <span class="space-for">이진</span>
+            <span class="space-write"></span>
+          </router-link>
         </div>
       </div>
     </div>
@@ -46,7 +58,7 @@ export default {
     const meets = ref([]);
     const url = "https://port-0-react-mangoshop-server-6g2llfg440fy.sel3.cloudtype.app";
     const paramMeets = "/meets";
-
+    
     axios.get(`${url}${paramMeets}`)
     .then((result)=>{
       meets.value = result.data.meets;

@@ -9,6 +9,14 @@ p {
   padding: 0;
 }
 
+textarea {
+  resize: none;
+}
+
+a {
+  text-decoration: none;
+}
+
 #app {
   min-width: 375px;
   max-width: 580px;
@@ -51,6 +59,7 @@ input, select, option {
 .choose-wrap .choose-container-left {
   width: 20%;
   border-radius: 15px;
+  text-align: center;
   background: #F6F6F6;
   overflow: hidden;
 }
@@ -61,7 +70,6 @@ input, select, option {
   display: block;
   width: 100%;
   padding: 0.8rem 0;
-  text-align: center;
   color: #2B2D2C;
 }
 .choose-wrap .choose-container-left .choose-when input[type=date] {
@@ -134,12 +142,13 @@ input, select, option {
 .record-wrap .meet-record {
   display: flex;
   justify-content: space-between;
-}
-.record-wrap .meet-record > div {
-  border-radius: 15px;
+  flex-wrap: wrap;
+  margin-bottom: 1rem;
 }
 .record-wrap .meet-record-when {
   width: 20%;
+  border-radius: 15px;
+  text-align: center;
   background-color: #E2EFEB;
 }
 .record-wrap .meet-record-when > p {
@@ -155,6 +164,7 @@ input, select, option {
   justify-content: space-evenly;
   flex-direction: column;
   width: 55%;
+  border-radius: 15px;
   background-color: #FAF8EC;
 }
 .record-wrap .meet-record-where > p {
@@ -169,8 +179,9 @@ input, select, option {
 }
 .record-wrap .meet-record-who {
   width: 20%;
-  background-color: #F3EFFF;
+  border-radius: 15px;
   text-align: center;
+  background-color: #F3EFFF;
 }
 .record-wrap .meet-record-who > svg, .record-wrap .meet-record-who p {
   color: #A294CE;
@@ -188,6 +199,7 @@ input, select, option {
   display: flex;
   justify-content: space-between;
   flex-wrap: wrap;
+  width: 100%;
   margin-top: 1rem;
 }
 .record-wrap .record-what-space {
@@ -195,6 +207,10 @@ input, select, option {
   text-align: center;
   border-radius: 15px;
   padding: 0.3rem 0;
+  transition: all 0.4s;
+}
+.record-wrap .record-what-space #space-write {
+  width: 100%;
 }
 .record-wrap .record-what-space:first-child {
   border: 1px solid #AECDC3;
@@ -203,6 +219,12 @@ input, select, option {
 .record-wrap .record-what-space:first-child .space-for {
   color: #AECDC3;
 }
+.record-wrap .record-what-space:first-child:hover {
+  background: #AECDC3;
+}
+.record-wrap .record-what-space:first-child:hover .space-for {
+  color: #fff;
+}
 .record-wrap .record-what-space:nth-child(2) {
   border: 1px solid #ffcc9d;
   margin-bottom: 0.8rem;
@@ -210,15 +232,100 @@ input, select, option {
 .record-wrap .record-what-space:nth-child(2) .space-for {
   color: #ffcc9d;
 }
+.record-wrap .record-what-space:nth-child(2):hover {
+  background: #ffcc9d;
+}
+.record-wrap .record-what-space:nth-child(2):hover .space-for {
+  color: #fff;
+}
 .record-wrap .record-what-space:nth-child(3) {
   border: 1px solid #FFC6BB;
 }
 .record-wrap .record-what-space:nth-child(3) .space-for {
   color: #FFC6BB;
 }
+.record-wrap .record-what-space:nth-child(3):hover {
+  background: #FFC6BB;
+}
+.record-wrap .record-what-space:nth-child(3):hover .space-for {
+  color: #fff;
+}
 .record-wrap .record-what-space:nth-child(4) {
   border: 1px solid #94D2E5;
 }
 .record-wrap .record-what-space:nth-child(4) .space-for {
   color: #94D2E5;
+}
+.record-wrap .record-what-space:nth-child(4):hover {
+  background: #94D2E5;
+}
+.record-wrap .record-what-space:nth-child(4):hover .space-for {
+  color: #fff;
+}
+
+.record-top {
+  display: flex;
+  justify-content: space-between;
+}
+.record-top-back, .record-top-submit {
+  width: 20%;
+  border-radius: 15px;
+  text-align: center;
+  color: #B4B4B4;
+  background: #F6F6F6;
+}
+.record-top-back svg, .record-top-submit svg {
+  padding-top: 0.8rem;
+}
+.record-top-back p, .record-top-submit p {
+  padding-bottom: 0.8rem;
+}
+.record-top-middle {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  flex-direction: column;
+  width: 55%;
+  border-radius: 15px;
+  background: #FAF8EC;
+}
+.record-top-middle p {
+  width: 80%;
+  color: #2B2D2C;
+}
+.record-top-middle .middle-when {
+  font-size: 0.8rem;
+  font-weight: 300;
+}
+.record-top-middle .middle-who {
+  font-size: 1.1rem;
+  font-weight: 500;
+}
+.record-top-submit {
+  width: 20%;
+  border-radius: 15px;
+  text-align: center;
+  border: 0 none;
+  color: #0A696D;
+  background: #E2EFEB;
+}
+
+.record-bottom {
+  margin: 1.8rem 0;
+}
+.record-bottom textarea {
+  width: 100%;
+  padding: 1rem;
+  border-radius: 15px;
+  box-sizing: border-box;
+  font-size: 1rem;
+  font-weight: 300;
+  line-height: 1.65;
+  letter-spacing: -0.35px;
+  border: 1px solid #AECDC3;
+  transition: all 0.3s;
+}
+.record-bottom textarea:focus {
+  outline: none;
+  border: 3px solid #AECDC3;
 }/*# sourceMappingURL=style.css.map */

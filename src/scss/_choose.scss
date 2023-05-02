@@ -5,8 +5,7 @@
     @include flexBetween;
     padding: 1.8rem 0;
     &-left{
-      width: 20%;
-      border-radius: 15px;
+      @include sideRect;
       background: #F6F6F6;
       overflow: hidden;
       .choose-when{
@@ -14,7 +13,6 @@
         display: block;
         width: 100%;
         padding: 0.8rem 0;
-        text-align: center;
         color: $black-color;
         input[type="date"]{
           display: block;

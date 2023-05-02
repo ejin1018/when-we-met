@@ -1,6 +1,6 @@
 import {createRouter, createWebHistory} from 'vue-router';
 import HOME from '../pages/home.vue';
-import Sango from '../pages/record/_sango.vue'
+import WRITE from '../pages/record/_write.vue'
 
 const router = createRouter({
   history:createWebHistory(),
@@ -11,9 +11,9 @@ const router = createRouter({
       component:HOME
     },
     {
-      path:'/record/:sango',
-      name:'SANGO',
-      component:Sango
+      path:'/record/:username',
+      name:'user',
+      component:WRITE
     },
   ]
 });
