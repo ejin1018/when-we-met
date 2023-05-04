@@ -31,30 +31,30 @@
 
 <script>
 import {ref} from "vue";
-import axios from 'axios';
 import dayjs from 'dayjs';
 
 export default {
-  setup(){
+  setup(props,context){
     let meetDate = ref('');
     let getDate = ()=>{
       console.log(meetDate.value);
     }
-    const url = "https://port-0-react-mangoshop-server-6g2llfg440fy.sel3.cloudtype.app";
-    const paramMeets = "/meets";
+
     const meetSubmit = (meet)=>{
-      axios.post(`${url}${paramMeets}`,{
+      context.emit("tossAdd",{
         when:meet.target[0].value,
         where:meet.target[1].value,
         cafe:meet.target[2].value,
         who:meet.target[3].value
-      }).then((result)=>{
-        console.log('등록성공',result);
-      }).catch((error)=>{
-        console.log('등록실패',error)
-      })
+      });
     }
-    return {meetDate,getDate,meetSubmit,dayjs}
+    
+    return {
+      meetDate,
+      getDate,
+      dayjs,
+      meetSubmit,
+    }
 
   }
 }

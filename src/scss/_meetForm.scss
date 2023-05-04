@@ -9,7 +9,7 @@
       background: #F6F6F6;
       overflow: hidden;
       .choose-when{
-        @include realativeZero;
+        @include relativeZero;
         display: block;
         width: 100%;
         padding: 0.8rem 0;
