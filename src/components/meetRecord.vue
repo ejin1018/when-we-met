@@ -1,8 +1,7 @@
 <template>
   <div class="record-wrap">
     <div class="record-container">
-      <p>{{ meetList }}</p>
-      <div v-for="i in meets" :key="i.id" class="meet-record">
+      <div v-for="i in meetList.meetLists" :key="i.id" class="meet-record">
         <div class="meet-record-when">
           <p>{{ dayjs(i.when).format('MM DD') }}</p>
         </div>
@@ -53,44 +52,23 @@
 </template>
 
 <script>
-import axios from 'axios';
-import {ref} from 'vue';
-import dayjs from 'dayjs';
+  import dayjs from 'dayjs';
 
-export default {
-  props:{meetList},
-  setup(props,context){
-    const meets = ref([]);
-    const url = "https://port-0-react-mangoshop-server-6g2llfg440fy.sel3.cloudtype.app";
-    const paramMeets = "/meets";
-    
-    // home 에 있는 getMeets를 여기서 실행시키기 가능?
-    // 부모에 있는 함수를 자식에서 쓰고싶으면... props?
-    
-    const getMeets = ()=>{
-      axios.get(`${url}${paramMeets}`)
-      .then((result)=>{
-        meets.value = result.data.meets;
-      }).catch((error)=>{
-        console.log('조회실패',error)
-      })
-    }
-    getMeets();
+  export default {
+    props:{meetList:{type:Array,required: true}},
+    setup(props,context){
+      console.log('',props)
 
-    const deleteMeet = (id)=>{
-      context.emit("tossDel",id)
-      // axios.delete(`${url}${paramMeets}/${id}`).then(()=>{
-      //   getMeets();
-      // }).catch((err)=>{
-      //   console.log(err);
-      // })
-    }
+      const deleteMeet = (id)=>{
+        context.emit("tossDel",id)
+      }
 
-    return {
-      meets,dayjs,getMeets,deleteMeet
+      return {
+        dayjs,
+        deleteMeet
+      }
     }
   }
-}
 </script>
 
 <style>

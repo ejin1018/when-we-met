@@ -1,58 +1,74 @@
 <template>
   <meetForm @tossAdd="postThis" />
-  <meetRecord :meetList={meets} @tossDel="delThis" />
+  <meetRecord :meetList={meetLists} @tossDel="delThis" />
 </template>
 
 <script>
 import axios from "axios";
-import {ref} from 'vue';
+import {ref,onMounted} from "vue";
 import meetForm from "@/components/meetForm.vue";
 import meetRecord from "@/components/meetRecord.vue";
 
 export default {
   components:{meetForm,meetRecord},
   setup(){
-    const meets = ref([]);
+    let meetLists = ref([]);
     const url = "https://port-0-react-mangoshop-server-6g2llfg440fy.sel3.cloudtype.app";
     const paramMeets = "/meets";
     
     const getMeetsAtHome = ()=>{
+      // get
       axios.get(`${url}${paramMeets}`)
       .then((result)=>{
-        meets.value = result.data.meets;
-        console.log('🏠',meets.value)
+        console.log('🏠',result.data.meets);
+        meetLists.value = result.data.meets;
+        console.log('🏀',meetLists.value);
       }).catch((error)=>{
         console.log('조회실패',error)
       })
     }
     getMeetsAtHome();
     
+    onMounted(()=>{
+      getMeetsAtHome();
+      console.log('😇😇😇',meetLists.value);
+    })
+
     const postThis = (emitFromForm)=>{
       console.log('👊',emitFromForm);
-      // 여기서 post 하셈 !!
+      // post
       axios.post(`${url}${paramMeets}`,{
         when:emitFromForm.when,
         where:emitFromForm.where,
         cafe:emitFromForm.cafe,
         who:emitFromForm.who,
       }).then((result)=>{
-        console.log('🐟포스트🐟',result);
         getMeetsAtHome();
+        console.log('🐟포스트🐟',result);
       }).catch((err)=>{
         console.log('등록실패',err)
       })
     }
-
+    
     const delThis = (emitFromRecord)=>{
       console.log('🖐️',emitFromRecord)
-      axios.delete(`${url}${paramMeets}/${emitFromRecord}`).then(()=>{
+      // delete
+      axios.delete(`${url}${paramMeets}/${emitFromRecord}`)
+      .then((result)=>{
+        console.log('🤖삭제🤖',result);
         getMeetsAtHome();
-      }).catch((err)=>{
+      })
+      .catch((err)=>{
         console.log(err);
       })
     }
     
-    return{getMeetsAtHome,postThis,delThis}
+    return{
+      getMeetsAtHome,
+      postThis,
+      delThis,
+      meetLists
+    }
   }
 }
 </script>
