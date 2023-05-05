@@ -21,6 +21,7 @@ export default {
       axios.get(`${url}${paramMeets}`)
       .then((result)=>{
         meetLists.value = result.data.meets;
+        console.log('🏠',meetLists.value)
       }).catch((error)=>{
         console.log('조회실패',error)
       })
@@ -42,7 +43,7 @@ export default {
         console.log('등록실패',err)
       })
     }
-    
+
     const delThis = (emitFromRecord)=>{
       console.log('🖐️',emitFromRecord)
       // delete

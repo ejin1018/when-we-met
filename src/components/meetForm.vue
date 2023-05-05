@@ -10,10 +10,10 @@
       </div>
       <div class="choose-container-middle">
         <label class="choose-location">
-          <input type="text" placeholder="지역">
+          <input v-model="meetWhere" type="text" placeholder="지역">
         </label>
         <label class="choose-cafe">
-          <input type="text" placeholder="카페">
+          <input v-model="meetCafe" type="text" placeholder="카페">
         </label>
       </div>
       <div class="choose-container-right">
@@ -26,6 +26,7 @@
         <button type="submit">등록</button>
       </div>
     </form>
+    <p v-if="submitErr" class="choose-error">{{ emptyHere }}! 👾</p>
   </div>
 </template>
 
@@ -40,13 +41,30 @@ export default {
       console.log(meetDate.value);
     }
 
+    const submitErr = ref(false);
+    let emptyHere = ref('');
+    let meetWhere = ref('');
+    let meetCafe = ref('');
     const meetSubmit = (meet)=>{
-      context.emit("tossAdd",{
-        when:meet.target[0].value,
-        where:meet.target[1].value,
-        cafe:meet.target[2].value,
-        who:meet.target[3].value
-      });
+      if(!meetDate.value || !meetWhere.value || !meetCafe.value){
+        submitErr.value = true;
+        emptyHere.value = '비어있는 입력창이 있습니다';
+        if(!meetDate.value && !meetWhere.value && !meetCafe.value){
+          emptyHere.value = '입력된 값이 없습니다';
+        }
+      }else{
+        submitErr.value = false;
+        meetDate.value = '';
+        meetWhere.value = '';
+        meetCafe.value = '';
+        
+        context.emit("tossAdd",{
+          when:meet.target[0].value,
+          where:meet.target[1].value,
+          cafe:meet.target[2].value,
+          who:meet.target[3].value
+        });
+      }
     }
     
     return {
@@ -54,6 +72,10 @@ export default {
       getDate,
       dayjs,
       meetSubmit,
+      submitErr,
+      emptyHere,
+      meetWhere,
+      meetCafe
     }
 
   }

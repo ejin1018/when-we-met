@@ -51,6 +51,14 @@ input, select, option {
   border-radius: 0 0 20px 20px;
   background: #F0F0F0;
 }
+.choose-wrap .choose-error {
+  width: 90%;
+  margin: 0 auto;
+  padding-bottom: 1.3rem;
+  font-size: 1rem;
+  font-weight: 300;
+  text-align: center;
+}
 .choose-wrap .choose-container {
   display: flex;
   justify-content: space-between;

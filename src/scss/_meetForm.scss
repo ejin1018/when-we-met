@@ -1,6 +1,14 @@
 .choose-wrap{
   border-radius: 0 0 20px 20px;
   background: #F0F0F0;
+  .choose-error{
+    width: 90%;
+    margin: 0 auto;
+    padding-bottom: 1.3rem;
+    font-size: 1rem;
+    font-weight: 300;
+    text-align: center;
+  }
   .choose-container{
     @include flexBetween;
     padding: 1.8rem 0;

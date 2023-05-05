@@ -16,28 +16,47 @@
         <div class="record-what">
           <router-link 
             class="record-what-space"
-            :to="{name: 'user',params:{username:'sango'}}"
+            :to="{
+              name: 'user',
+              params:{username:'sango'},
+              query:{
+                when:i.when,
+                who:'현우',
+              }
+            }"
           >
             <span class="space-for">현우</span>
             <span class="space-write"></span>
           </router-link>
           <router-link 
             class="record-what-space"
-            :to="{name: 'user',params:{username:'aek'}}"
+            :to="{name: 'user',params:{username:'aek'},
+              query:{
+                when:i.when,
+                who:'애경',
+              }}"
           >
             <span class="space-for">애경</span>
             <span class="space-write"></span>
           </router-link>
           <router-link 
             class="record-what-space"
-            :to="{name: 'user',params:{username:'gugu'}}"
+            :to="{name: 'user',params:{username:'gugu'},
+              query:{
+                when:i.when,
+                who:'규연',
+              }}"
           >
             <span class="space-for">규연</span>
             <span class="space-write"></span>
           </router-link>
           <router-link 
             class="record-what-space"
-            :to="{name: 'user',params:{username:'ejin'}}"
+            :to="{name: 'user',params:{username:'ejin'},
+              query:{
+                when:i.when,
+                who:'이진',
+              }}"
           >
             <span class="space-for">이진</span>
             <span class="space-write"></span>
