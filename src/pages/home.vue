@@ -20,20 +20,13 @@ export default {
       // get
       axios.get(`${url}${paramMeets}`)
       .then((result)=>{
-        console.log('🏠',result.data.meets);
         meetLists.value = result.data.meets;
-        console.log('🏀',meetLists.value);
       }).catch((error)=>{
         console.log('조회실패',error)
       })
     }
     getMeetsAtHome();
     
-    onMounted(()=>{
-      getMeetsAtHome();
-      console.log('😇😇😇',meetLists.value);
-    })
-
     const postThis = (emitFromForm)=>{
       console.log('👊',emitFromForm);
       // post
@@ -62,7 +55,11 @@ export default {
         console.log(err);
       })
     }
-    
+
+    onMounted(()=>{
+      getMeetsAtHome();
+    })
+
     return{
       getMeetsAtHome,
       postThis,

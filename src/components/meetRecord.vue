@@ -55,10 +55,8 @@
   import dayjs from 'dayjs';
 
   export default {
-    props:{meetList:{type:Array,required: true}},
+    props:{meetList:{type:Object,required: true}},
     setup(props,context){
-      console.log('',props)
-
       const deleteMeet = (id)=>{
         context.emit("tossDel",id)
       }
