@@ -37,11 +37,12 @@
     border: 0 none;
     color: #0A696D;
     background: #E2EFEB;
+    cursor: pointer;
   }
 }
 .record-bottom{
   margin: 1.8rem 0;
-  textarea{
+  &-text,textarea{
     width: 100%;
     padding: 1rem;
     border-radius: 15px;
@@ -52,9 +53,9 @@
     letter-spacing: -0.35px;
     border: 1px solid #AECDC3;
     transition: all .3s;
-    &:focus{
-      outline: none;
-      border: 3px solid #AECDC3;
-    }
+  }
+  textarea:focus{
+    outline: none;
+    border: 3px solid #AECDC3;
   }
 }

@@ -8,7 +8,7 @@
             <p>뒤로</p>
           </router-link>
           <div class="record-top-middle">
-            <p class="middle-when">{{ dayjs(day).format('MM월 DD일') }}</p>
+            <p class="middle-when">{{ dayjs(thisMeet.when).format('MM월 DD일') }}</p>
             <p class="middle-who">{{ name }} 의 일지</p>
           </div>
           <button type="submit" class="record-top-submit">
@@ -17,7 +17,11 @@
           </button>
         </div>
         <div class="record-bottom">
-          <textarea name="record-box" id="recordBox" rows="15"></textarea>
+          <textarea 
+            class="record-bottom-text" 
+            name="record-box" 
+            rows="15" 
+            :value=userRecord ></textarea>
         </div>
       </form>
     </div>
@@ -25,35 +29,86 @@
 </template>
 
 <script>
+import {ref} from "vue";
 import {useRoute} from "vue-router";
 import dayjs from "dayjs";
 import axios from 'axios';
 
 export default {
   setup(){
+    const url = "https://port-0-react-mangoshop-server-6g2llfg440fy.sel3.cloudtype.app";
+    const paramMeets = "/meets";
+
+    const thisMeet = ref([]);
     const route = useRoute();
-    const day = route.query.when;
     const name = route.query.name;
-    const recordId = route.query.id;
-    const recordSubmit = (e)=>{
-      console.log(e.target[1].value)
-      // 여기서 axios post 로 보내봐라
-      axios.post(`https://port-0-react-mangoshop-server-6g2llfg440fy.sel3.cloudtype.app/meets/${recordId}`,{
-      // axios.post(`http://localhost:8081/meets/${recordId}`,{
-        sango:e.target[1].value,
-        id:recordId
-      })
+    const user = route.params.username;
+    let recordId = route.query.id;
+    let userRecord = ref();
+    
+    const getThisMeet = ()=>{
+      axios.get(`${url}${paramMeets}/${recordId}`)
       .then((result)=>{
-        console.log('zzㅋㅋ',result)
-      }).catch((err)=>{
-        console.log('등록실패',err)
+        thisMeet.value = result.data.meets;
+        console.log('🏠',thisMeet.value)
+        console.log('💁‍♂️',user)
+
+        if(thisMeet.value){
+          if(user === 'sango'){
+            userRecord.value = thisMeet.value.sango 
+          }else if(user === 'aek'){
+            userRecord.value = thisMeet.value.aek 
+          }else if(user === 'gugu'){
+            userRecord.value = thisMeet.value.gugu 
+          }else if(user === 'ejin'){
+            userRecord.value = thisMeet.value.ejin 
+          }
+        }
+
+      }).catch((error)=>{
+        console.log('조회실패',error)
       })
     }
+    getThisMeet();
+    
+
+    const recordSubmit = (e)=>{
+      if(e.target[1].value){
+        // 값이 있을 때
+        if(user === 'sango'){
+          axios.post(`${url}${paramMeets}/${recordId}`,{
+            sango:e.target[1].value,
+            id:recordId
+          })
+        }else if(user === 'aek'){
+          axios.post(`${url}${paramMeets}/${recordId}`,{
+            aek:e.target[1].value,
+            id:recordId
+          })
+        }else if(user === 'gugu'){
+          axios.post(`${url}${paramMeets}/${recordId}`,{
+            gugu:e.target[1].value,
+            id:recordId
+          })
+        }else if(user === 'ejin'){
+          axios.post(`${url}${paramMeets}/${recordId}`,{
+            ejin:e.target[1].value,
+            id:recordId
+          })
+        }
+        
+      }else{
+        console.log('값 없음')
+      }
+    }
+
     return {
+      thisMeet,
       dayjs,
-      day,
       name,
-      recordSubmit
+      user,
+      recordSubmit,
+      userRecord,
     }
   }
 }

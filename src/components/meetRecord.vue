@@ -16,54 +16,55 @@
         <div class="record-what">
           <router-link 
             class="record-what-space"
-            :to="{
-              name: 'user',
+            :to="
+            {
+              name: 'WRITE',
               params:{username:'sango'},
               query:{
-                when:i.when,
-                where:i.where,
-                cafe:i.cafe,
-                who:i.who,
                 name:'현우',
                 id:i.id,
               }
-            }"
+            }
+            "
           >
             <span class="space-for">현우</span>
-            <span class="space-write"></span>
+            <p class="space-write">
+              {{ i.sango }}
+            </p>
           </router-link>
           <router-link 
             class="record-what-space"
-            :to="{name: 'user',params:{username:'aek'},
+            :to="{name: 'WRITE',params:{username:'aek'},
               query:{
-                when:i.when,
-                who:'애경',
+                name:'애경',
+                id:i.id,
               }}"
           >
             <span class="space-for">애경</span>
-            <span class="space-write"></span>
+            <p class="space-write">{{ i.aek }}</p>
           </router-link>
           <router-link 
             class="record-what-space"
-            :to="{name: 'user',params:{username:'gugu'},
+            :to="{name: 'WRITE',
+              params:{username:'gugu'},
               query:{
-                when:i.when,
-                who:'규연',
+                id:i.id,
+                name:'규연',
               }}"
           >
             <span class="space-for">규연</span>
-            <span class="space-write"></span>
+            <p class="space-write">{{ i.gugu }}</p>
           </router-link>
           <router-link 
             class="record-what-space"
-            :to="{name: 'user',params:{username:'ejin'},
+            :to="{name: 'WRITE',params:{username:'ejin'},
               query:{
-                when:i.when,
-                who:'이진',
+                id:i.id,
+                name:'이진',
               }}"
           >
             <span class="space-for">이진</span>
-            <span class="space-write"></span>
+            <p class="space-write">{{ i.ejin }}</p>
           </router-link>
         </div>
         <button class="meet-record-delete" @:click="deleteMeet(i.id)">

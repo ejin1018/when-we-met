@@ -83,13 +83,22 @@
     width: 100%;
     margin-top: 1rem;
     &-space{
-      width: 48%;
+      width: 45%;
       text-align: center;
       border-radius: 15px;
-      padding: 0.3rem 0;
+      padding: 0.4rem;
       transition: all .4s;
-      #space-write{
-        width: 100%;
+      .space-write{
+        margin-top: 0.5rem;
+        font-size: 0.9rem;
+        font-weight: 300;
+        color: #333;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: normal;
+        display: -webkit-box;
+        -webkit-line-clamp: 5;
+        -webkit-box-orient: vertical;
       }
       &:first-child{
         border: 1px solid #AECDC3;

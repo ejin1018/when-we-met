@@ -1,6 +1,6 @@
 import {createRouter, createWebHistory} from 'vue-router';
 import HOME from '../pages/home.vue';
-import WRITE from '../pages/record/_write.vue'
+import WRITE from '../pages/record/_write.vue';
 
 const router = createRouter({
   history:createWebHistory(),
@@ -12,9 +12,9 @@ const router = createRouter({
     },
     {
       path:'/record/:username',
-      name:'user',
+      name:'WRITE',
       component:WRITE
-    },
+    }
   ]
 });
 
