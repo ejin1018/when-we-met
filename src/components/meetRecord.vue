@@ -21,7 +21,11 @@
               params:{username:'sango'},
               query:{
                 when:i.when,
-                who:'현우',
+                where:i.where,
+                cafe:i.cafe,
+                who:i.who,
+                name:'현우',
+                id:i.id,
               }
             }"
           >
