@@ -208,7 +208,7 @@ input, select, option {
   font-size: 1.1rem;
   font-weight: 500;
 }
-.record-wrap .meet-record:hover .meet-record-delete, .record-wrap .meet-record:focus .meet-record-delete {
+.record-wrap .meet-record:hover .meet-record-delete, .record-wrap .meet-record:active .meet-record-delete {
   transform: scale(1);
 }
 .record-wrap .meet-record-delete {
