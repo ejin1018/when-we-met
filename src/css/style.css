@@ -87,7 +87,8 @@ input, select, option {
   right: 0;
   width: 100%;
   height: 100%;
-  font-size: 10rem;
+  font-size: 0;
+  line-height: 0;
 }
 .choose-wrap .choose-container-left .choose-when input[type=date]::-webkit-calendar-picker-indicator {
   opacity: 0;
@@ -122,6 +123,9 @@ input, select, option {
   width: 100%;
   padding: 0.3rem 0;
   border-bottom: 1px solid #2B2D2C;
+  -moz-appearance: none;
+       appearance: none;
+  -webkit-appearance: none;
 }
 .choose-wrap .choose-container-right {
   display: flex;
@@ -134,8 +138,12 @@ input, select, option {
   height: 45%;
   border-radius: 15px;
   padding: 0 0.3rem;
+  color: #2B2D2C;
   background: #F6F6F6;
   cursor: pointer;
+  -moz-appearance: none;
+       appearance: none;
+  -webkit-appearance: none;
 }
 .choose-wrap .choose-container-right button {
   height: 45%;
