@@ -33,6 +33,7 @@ import {ref} from "vue";
 import {useRoute} from "vue-router";
 import dayjs from "dayjs";
 import axios from 'axios';
+import router from '../router'
 
 export default {
   setup(){
@@ -96,7 +97,7 @@ export default {
             id:recordId
           })
         }
-        
+        router.push('/');
       }else{
         console.log('값 없음')
       }
